@@ -14,6 +14,7 @@ app.use(connectDB(db.init()))
 
 // region Routes
 app.use('/', require('./routes/api/product'))
+app.use('*', (req, res) => res.status(404).json({error: 'Route not found'}))
 // endregion
 
 // region Error handlers
